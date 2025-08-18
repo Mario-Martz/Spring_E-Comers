@@ -17,7 +17,9 @@ public class Producto {
             allocationSize = 1
     )
     private Integer id;
+    @Column(name = "nombre", nullable = false,length = 50)
     private String nombre;
+    @Column(name = "descripcion", nullable = false, length = 150)
     private String descripcion;
     private String imagen;
     private Double precio;

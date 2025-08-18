@@ -14,7 +14,13 @@ import java.util.Date;
 public class Orden {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "ordenes_seq_gen")
+    @SequenceGenerator(
+            name = "ordenes_seq_gen",
+            sequenceName = "ordenes_seq_gen",
+            allocationSize=1
+    )
     private Integer id;
+    @Column(name = "numero", nullable = false)
     private String numero;
     private Date fechaCreacion;
     private Date fechaRecibida;

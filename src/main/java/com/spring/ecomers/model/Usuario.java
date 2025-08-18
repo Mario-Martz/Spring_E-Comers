@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "usuarios")
-public class Usuario {
+public class  Usuario {
     //Atributos de la clase usuario
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq_gen")
@@ -29,6 +29,7 @@ public class Usuario {
     private String telefono;
     private String tipo;
     private String password;
+
 
     @OneToMany(mappedBy = "usuario") //Relacion de Uno a muchos estara mapeada por el usuario
     private List<Producto> productos;
