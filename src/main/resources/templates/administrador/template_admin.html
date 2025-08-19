@@ -1,0 +1,85 @@
+<!-- Navigation -->
+  <!--Fracmento de Header-->
+  <div th:fragment="header">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <div class="container">
+              <a class="navbar-brand" href="/">
+                  <i class="fas fa-shopping-bag"></i> Spring eCommerce
+              </a>
+
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="#">Inicio</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Tienda
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="#">Todos los productos</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Categoría 1</a>
+                              <a class="dropdown-item" href="#">Categoría 2</a>
+                          </div>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="carrito.html">
+                              <i class="fas fa-shopping-cart"></i> Carrito
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="login.html">
+                              <i class="fas fa-user-circle"></i> Mi Cuenta
+                          </a>
+                      </li>
+                  </ul>
+                  <form class="form-inline ml-lg-3 my-2 my-lg-0" method="post" action="#">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos..." aria-label="Search" name="nombre" autocomplete="off">
+                      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+                  </form>
+              </div>
+          </div>
+      </nav>
+  </div>
+  <!-- Navigation -->
+
+
+  <!-- Footer -->
+  <div th:fragment="footer">
+      <footer class="py-5 bg-dark text-white">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-4 mb-4">
+                      <h5>Sobre Nosotros</h5>
+                      <p class="text-white-50">
+                          Somos una tienda comprometida con la calidad y la satisfacción del cliente.
+                      </p>
+                  </div>
+                  <div class="col-lg-4 mb-4">
+                      <h5>Enlaces Útiles</h5>
+                      <ul class="list-unstyled text-small">
+                          <li><a class="text-white-50" href="#">Inicio</a></li>
+                          <li><a class="text-white-50" href="#">Mi Cuenta</a></li>
+                          <li><a class="text-white-50" href="#">Política de Privacidad</a></li>
+                          <li><a class="text-white-50" href="#">Términos y Condiciones</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-lg-4 mb-4">
+                      <h5>Síguenos</h5>
+                      <a href="https://imgs.search.brave.com/slHY72qBPiFnhHMafpkCfxQ5G1mfzRQhJSIdtFDvpoY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy8x/LzFiL0ZhY2Vib29r/X2ljb24uc3Zn" class="text-white-50 mr-2"><i class="fab fa-facebook-f fa-2x"></i></a>
+                      <a href="#" class="text-white-50 mr-2"><i class="fab fa-twitter fa-2x"></i></a>
+                      <a href="#" class="text-white-50"><i class="fab fa-instagram fa-2x"></i></a>
+                  </div>
+              </div>
+              <hr class="bg-white my-3">
+              <p class="m-0 text-center text-white-50">
+                  Copyright &copy; Spring eCommerce 2024
+              </p>
+          </div>
+      </footer>
+  </div>
