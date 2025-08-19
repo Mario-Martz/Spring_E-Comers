@@ -1,6 +1,5 @@
 package com.spring.ecomers.model;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,8 +11,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "usuarios")
-public class  Usuario {
-    //Atributos de la clase usuario
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq_gen")
     @SequenceGenerator(
@@ -30,15 +28,13 @@ public class  Usuario {
     private String tipo;
     private String password;
 
-
-    @OneToMany(mappedBy = "usuario") //Relacion de Uno a muchos estara mapeada por el usuario
+    @OneToMany(mappedBy = "usuario")
     private List<Producto> productos;
 
     @OneToMany(mappedBy = "usuario")
     private List<Orden> ordenes;
 
     public Usuario() {
-
     }
 
     public Usuario(Integer id, String nombre, String username, String email, String direccion, String telefono, String tipo, String password) {

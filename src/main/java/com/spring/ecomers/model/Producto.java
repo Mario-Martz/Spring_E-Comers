@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal; // Importa BigDecimal
+
 @Getter
 @Setter
 @Entity
@@ -22,18 +24,16 @@ public class Producto {
     @Column(name = "descripcion", nullable = false, length = 150)
     private String descripcion;
     private String imagen;
-    private Double precio;
-    private String cantidad;
+    private BigDecimal precio; // Tipo de dato cambiado a BigDecimal
+    private Integer cantidad;
 
-    //Creamos una relacion de muchos a uno con el usuario
     @ManyToOne
-    //@JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
     public Producto() {
     }
 
-    public Producto(Integer id, String nombre, String descripcion, String imagen, Double precio, String cantidad) {
+    public Producto(Integer id, String nombre, String descripcion, String imagen, BigDecimal precio, Integer cantidad) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -50,7 +50,7 @@ public class Producto {
                 ", descripcion='" + descripcion + '\'' +
                 ", imagen='" + imagen + '\'' +
                 ", precio=" + precio +
-                ", cantidad='" + cantidad + '\'' +
+                ", cantidad=" + cantidad +
                 '}';
     }
 }

@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal; // Importa BigDecimal
 import java.util.Date;
+import java.util.List;
 
 
 @Getter
@@ -13,34 +15,34 @@ import java.util.Date;
 @Table(name = "ordenes")
 public class Orden {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "ordenes_seq_gen")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ordenes_seq_gen")
     @SequenceGenerator(
             name = "ordenes_seq_gen",
-            sequenceName = "ordenes_seq_gen",
-            allocationSize=1
+            sequenceName = "ordenes_seq",
+            allocationSize = 1
     )
     private Integer id;
     @Column(name = "numero", nullable = false)
     private String numero;
     private Date fechaCreacion;
     private Date fechaRecibida;
-    private double total;
+    private BigDecimal total; // Tipo de dato cambiado a BigDecimal
 
-    @ManyToOne()
+    @ManyToOne
     private Usuario usuario;
 
-    @OneToOne(mappedBy = "orden")
-    private DetalleOrden detalleOrden;
+    @OneToMany(mappedBy = "orden", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DetalleOrden> detallesOrden;
 
     public Orden() {
-
     }
 
-    public Orden(Integer id, String numero, Date fechaCreacion, Date fechaRecibida) {
+    public Orden(Integer id, String numero, Date fechaCreacion, Date fechaRecibida, BigDecimal total) {
         this.id = id;
         this.numero = numero;
         this.fechaCreacion = fechaCreacion;
         this.fechaRecibida = fechaRecibida;
+        this.total = total;
     }
 
     @Override
@@ -52,6 +54,4 @@ public class Orden {
                 ", fechaRecibida=" + fechaRecibida +
                 '}';
     }
-
-
 }
