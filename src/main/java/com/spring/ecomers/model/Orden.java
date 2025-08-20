@@ -22,13 +22,18 @@ public class Orden {
             allocationSize = 1
     )
     private Integer id;
+
     @Column(name = "numero", nullable = false)
     private String numero;
+    @Column(name = "fecha_creacion", nullable = false)
     private Date fechaCreacion;
+    @Column(name = "fecha_recibida" , nullable = false)
     private Date fechaRecibida;
+    @Column(name = "total", nullable = false, precision = 12, scale = 2)
     private BigDecimal total; // Tipo de dato cambiado a BigDecimal
 
     @ManyToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
     @OneToMany(mappedBy = "orden", cascade = CascadeType.ALL, orphanRemoval = true)

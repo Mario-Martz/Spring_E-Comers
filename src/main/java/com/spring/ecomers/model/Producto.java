@@ -23,8 +23,11 @@ public class Producto {
     private String nombre;
     @Column(name = "descripcion", nullable = false, length = 150)
     private String descripcion;
+    @Column(name = "imagen", nullable = false)
     private String imagen;
+    @Column(name = "precio", nullable = false, precision = 12, scale = 2)
     private BigDecimal precio; // Tipo de dato cambiado a BigDecimal
+    @Column(name = "cantidad", nullable = false)
     private Integer cantidad;
 
     @ManyToOne

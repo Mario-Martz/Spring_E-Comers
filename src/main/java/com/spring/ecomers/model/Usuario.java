@@ -20,12 +20,26 @@ public class Usuario {
             allocationSize = 1
     )
     private Integer id;
+
+    @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
+
+    @Column(name = "username", nullable = false, length = 50)
     private String username;
+
+    @Column(name="email",nullable = false, length = 50)
     private String email;
+
+    @Column(name = "direccion", nullable = false, length = 50)
     private String direccion;
+
+    @Column(name="telefono",nullable = false, length = 10)
     private String telefono;
+
+    @Column(name = "tipo", nullable = false, length = 25)
     private String tipo;
+
+    @Column(name = "password", nullable = false, length = 25)
     private String password;
 
     @OneToMany(mappedBy = "usuario")

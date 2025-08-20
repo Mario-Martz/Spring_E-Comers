@@ -3,7 +3,6 @@ package com.spring.ecomers.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal; // Importa BigDecimal
 
 @Getter
@@ -23,6 +22,7 @@ public class DetalleOrden {
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
 
+    @Column(name = "cantidad", nullable = false)
     private Integer cantidad;
 
     @Column(name = "precio", nullable = false, precision = 12, scale = 2)
