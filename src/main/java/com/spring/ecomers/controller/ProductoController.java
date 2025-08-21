@@ -6,6 +6,7 @@ import com.spring.ecomers.service.ProductoService;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,7 @@ public class ProductoController {
     //Variable de tipo Logger para registrar mensajes de log
     private final Logger logger = LoggerFactory.getLogger(ProductoController.class);
 
-    @Autowired //Inyeccion de dependencias mediante @Autowired Spring Boot inyecte automáticamente la dependencia en tiempo de ejecución, sin necesidad de que tú crees manualmente la instancia con new.
+    @Autowired //Inyeccion de dependencias mediante @Autowired Spring Boot inyecté automáticamente la dependencia en tiempo de ejecución, sin necesidad de que tú crees manualmente la instancia con new.
     private ProductoService productoService; //Variable de tipo ProductoService para acceder a los metodos de la interface ProductoService
 
     /*
@@ -27,7 +28,8 @@ public class ProductoController {
     }*/
 
     @GetMapping("")
-    public String Show(){
+    public String Show(Model model){ //El objeto model se encarga de llevar información desde el backend a la vista
+        model.addAttribute("productos", productoService.findAll());
         return "productos/show";
     }
     @GetMapping("/create")
